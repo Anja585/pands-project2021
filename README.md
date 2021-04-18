@@ -15,8 +15,6 @@ The attributes measured were:
 
 All measures were given in centimeters. The Iris flower data set is now widely used as a data set for testing purposes in computer science. Below is an image of each flower type and a summary of samples presented in a table.  
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/iris_versicolor_setosa_virginica.jpg)
-
-
 ```
      sepal-length  sepal_width  petal_length  petal_width    type_of_Iris
 0             5.1          3.5           1.4          0.2     Iris-setosa
