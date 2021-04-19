@@ -13,8 +13,10 @@ The attributes measured were:
 * petal length
 * petal width. 
 
-All measures were given in centimeters. The Iris flower data set is now widely used as a data set for testing purposes in computer science. Below is an image of each flower type and a summary of samples presented in a table.  
+All measures were given in centimeters. The Iris flower data set is now widely used as a data set for testing purposes in computer science. Below is an image of each flower type and a summary of samples presented in a table. 
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/iris_versicolor_setosa_virginica.jpg)
+
 ```
      sepal-length  sepal_width  petal_length  petal_width    type_of_Iris
 0             5.1          3.5           1.4          0.2     Iris-setosa
@@ -37,3 +39,7 @@ All measures were given in centimeters. The Iris flower data set is now widely u
 4. Grepper () “how to import .data file in python pandas” Code Answer, Available at: https://www.codegrepper.com/code-examples/python/how+to+import+.data+file+in+python+pandas (Accessed: 17th April 2021).
 5. R. A. Fisher (1936) The use of multiple measurements in taxonomic problems. Wiley Online Library [Online]. Available at: https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1469-1809.1936.tb02137.x (Accessed: 14th April 2021).
 6. Karlijn Willems (20th November 2018) Machine Learning in R for beginners, Available at: https://www.datacamp.com/community/tutorials/machine-learning-in-r (Accessed: 18th April 2021).
+7. Pratik Nabriya (2019) Exploratory Data Analysis: Uni-variate analysis of Iris Data set, Available at: https://medium.com/analytics-vidhya/exploratory-data-analysis-uni-variate-analysis-of-iris-data-set-690c87a5cd40 (Accessed: 19th April 2021).
+8. (2021) Python, Pandas : write content of DataFrame into text File, Available at: https://stackoverflow.com/questions/31247198/python-pandas-write-content-of-dataframe-into-text-file (Accessed: 19th April 2021).
+9. (2021) TypeError: write() argument must be str, not list, Available at: https://stackoverflow.com/questions/41454921/typeerror-write-argument-must-be-str-not-list (Accessed: 19th April 2021).
+10. How do I select a subset of a DataFrame?, Available at: https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html?highlight=subset (Accessed: 19th April 2021).
