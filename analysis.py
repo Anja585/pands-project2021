@@ -67,7 +67,7 @@ ax4.set_title("petal_width_boxplot")
 # fill the colors
 colors =  ["pink", "lightblue", "lightgreen"]
 for boxplot in (sepal_length_boxplot, sepal_width_boxplot, petal_length_boxplot, petal_width_boxplot):
-    for patch,color in zip(sepal_length_boxplot['boxes'], colors):
+    for patch,color in zip(boxplot['boxes'], colors):
         patch.set_facecolor(color) 
 
 plt.savefig("boxplot.png")
