@@ -45,3 +45,8 @@ All measures were given in centimeters. The Iris flower data set is now widely u
 10. How do I select a subset of a DataFrame?, Available at: https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html?highlight=subset (Accessed: 19th April 2021).
 11. pandas.DataFrame.boxplot, Available at: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.boxplot.html (Accessed: 20th April 2021).
 12. (2020) Box Plot in Python using Matplotlib, Available at: https://www.geeksforgeeks.org/box-plot-in-python-using-matplotlib/ (Accessed: 20th April 2021).
+13. (2013) Creating boxplots with Matplotlib, Available at: http://blog.bharatbhole.com/creating-boxplots-with-matplotlib/ (Accessed: 21st April 2021).
+14. Advanced plotting, Available at: https://python4astronomers.github.io/plotting/advanced.html (Accessed: 21st April 2021).
+15. python matplotlib filled boxplots, Available at: https://stackoverflow.com/questions/20289091/python-matplotlib-filled-boxplots (Accessed: 21st April 2021).
+16. Box plots with custom fill colors, Available at: https://matplotlib.org/stable/gallery/statistics/boxplot_color.html (Accessed: 21st April 2021).
+17. matplotlib.pyplot.subplots, Available at: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots (Accessed: 21st April 2021).
