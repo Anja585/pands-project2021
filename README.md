@@ -50,3 +50,5 @@ All measures were given in centimeters. The Iris flower data set is now widely u
 15. python matplotlib filled boxplots, Available at: https://stackoverflow.com/questions/20289091/python-matplotlib-filled-boxplots (Accessed: 21st April 2021).
 16. Box plots with custom fill colors, Available at: https://matplotlib.org/stable/gallery/statistics/boxplot_color.html (Accessed: 21st April 2021).
 17. matplotlib.pyplot.subplots, Available at: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots (Accessed: 21st April 2021).
+18. Python zip() Function, Available at: https://www.w3schools.com/python/ref_func_zip.asp (Accessed: 22nd April 2021).
+19. Box Plot (Box and Whiskers): How to Read One & How to Make One in Excel, TI-83, SPSS, Available at: https://www.statisticshowto.com/probability-and-statistics/descriptive-statistics/box-plot/ (Accessed: 22nd April 2021).
