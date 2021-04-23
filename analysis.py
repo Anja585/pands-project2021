@@ -1,15 +1,13 @@
 # analysis.py
 # Author: Anja Antolkovic
 
-# 1. Importing relevant libraries 
-
+# 1. Importing relevant libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt 
 
-# 2. Working out the summary of each variable within the data set  
-
-iris = pd.read_csv("iris.data") # loading data set into a DataFrame
+# 2. Working out the summary of each variable within the data set
+iris = pd.read_csv("01_iris.data") # loading data set into a DataFrame
 iris_setosa = iris[iris["iris_type"] == "Iris-setosa"] # isolating rows only for iris Setosa's from a DataFrame 
 iris_versicolor = iris[iris["iris_type"] == "Iris-versicolor"] # isolating rows only for iris Versicolor's from a DataFrame
 iris_virginica = iris[iris["iris_type"] == "Iris-virginica"] # isolating rows only for iris Virginica's from a DataFrame         
@@ -18,8 +16,7 @@ iris_versicolor_summary = iris_versicolor.describe() # summary of descriptive st
 iris_virginica_summary = iris_virginica.describe() # summary of descriptive statistics for iris Virginica
 
 # 3. Copying the summary of descriptive statistics into txt file 
-
-with open ("iris_data_summary", "w") as f: # opening txt file for writing in test mode
+with open ("04_iris_data_summary", "w") as f: # opening txt file for writing in test mode
     f.write("iris setosa\n{}\n\n".format(str(iris_setosa_summary))) # overwriting the summary of descriptive statistics for iris Setosa into a txt file  
     f.write("iris versicolor\n{}\n\n".format(str(iris_versicolor_summary))) # overwriting the summary of descriptive statistics for iris Versicolor into a txt file
     f.write("iris virginica\n{}\n\n".format(str(iris_virginica_summary))) # overwriting the summary of descriptive statistics for iris Virginica into a txt file
@@ -87,8 +84,63 @@ for boxplot in (sepal_length_boxplot, sepal_width_boxplot, petal_length_boxplot,
         patch.set_facecolor(color) # set the color to each boxplot 
 
 # 4.9. Saving the plot
-plt.savefig("boxplot.png") # save the boxplot
+plt.savefig("05_boxplot.png") # save the boxplot
 plt.show() # show the boxplot
+
+# 5. Working out the histograms
+
+# 5.1. Histogram 1
+for sepal_length, color in zip(sepal_length_to_plot, colors):
+    sepal_length_histogram = plt.hist(sepal_length,
+                                      alpha=0.75,
+                                      bins=15,
+                                      color=color)
+
+plt.legend(labels)
+plt.xlabel("sepal_length")
+plt.ylabel("frequency")
+plt.title("sepal_length_histogram")
+plt.savefig('07_sepal_length_histogram.png')
+plt.show()
+
+# 5.2. Histogram 2
+for sepal_width, color in zip(sepal_width_to_plot, colors):
+    sepal_width_histogram = plt.hist(sepal_width,
+                                     alpha=0.75,
+                                     bins=15,
+                                     color=color)
+plt.legend(labels)
+plt.xlabel("sepal_width")
+plt.ylabel("frequency")
+plt.title("sepal_width_histogram")
+plt.savefig('08_sepal_width_histogram.png')
+plt.show()
+
+# 5.3. Histogram 3
+for petal_length, color in zip(petal_length_to_plot, colors):
+    petal_length_histogram = plt.hist(petal_length, 
+                                      alpha=0.75,
+                                      bins=15,
+                                      color=color)
+plt.legend(labels)
+plt.xlabel("petal_length")
+plt.ylabel("frequency")
+plt.title("petal_length_histogram")
+plt.savefig('09_petal_length_histogram.png')
+plt.show()
+
+# 5.4. Histogram 4
+for petal_width, color in zip(petal_width_to_plot, colors):
+    petal_width_histogram = plt.hist(petal_width,
+                                     alpha=0.75,
+                                     bins=15,
+                                     color=color)
+plt.legend(labels)
+plt.xlabel("petal_width")
+plt.ylabel("frequency")
+plt.title("petal_width_histogram")
+plt.savefig('10_petal_width_histogram.png')
+plt.show()
 
 # References: 
 # (2021) Python, Pandas : write content of DataFrame into text File, Available at: https://stackoverflow.com/questions/31247198/python-pandas-write-content-of-dataframe-into-text-file (Accessed: 19th April 2021).
@@ -102,3 +154,4 @@ plt.show() # show the boxplot
 # Box plots with custom fill colors, Available at: https://matplotlib.org/stable/gallery/statistics/boxplot_color.html (Accessed: 21st April 2021).
 # matplotlib.pyplot.subplots, Available at: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots (Accessed: 21st April 2021).
 # Python zip() Function, Available at: https://www.w3schools.com/python/ref_func_zip.asp (Accessed: 22nd April 2021).
+# Plot two histograms on single chart with matplotlib, Available at: https://stackoverflow.com/questions/6871201/plot-two-histograms-on-single-chart-with-matplotlib (Accessed: 23rd April 2021).
