@@ -39,9 +39,9 @@ petal_width_virginica = iris_virginica.petal_width
 
 # 4.2. Combining variables into a list appropriately
 sepal_length_to_plot = [sepal_length_setosa, sepal_length_versicolor, sepal_length_virginica]
-sepal_width_to_plot = [iris_setosa.sepal_width, iris_versicolor.sepal_width, iris_virginica.sepal_width]
-petal_length_to_plot = [iris_setosa.petal_length, iris_versicolor.petal_length, iris_virginica.petal_length]
-petal_width_to_plot = [iris_setosa.petal_width, iris_versicolor.petal_width, iris_virginica.petal_width]
+sepal_width_to_plot = [sepal_width_setosa, sepal_width_versicolor, sepal_width_virginica]
+petal_length_to_plot = [petal_length_setosa, petal_length_versicolor, petal_length_virginica]
+petal_width_to_plot = [petal_width_setosa, petal_width_versicolor, petal_width_virginica]
 
 # 4.3. Labels and subplots
 labels = ["setosa", "versicolor", "virginica"] # labels that will be on the x axis
@@ -141,6 +141,10 @@ plt.ylabel("frequency")
 plt.title("petal_width_histogram")
 plt.savefig('10_petal_width_histogram.png')
 plt.show()
+
+# 6. Working out the scatter plots
+
+
 
 # References: 
 # (2021) Python, Pandas : write content of DataFrame into text File, Available at: https://stackoverflow.com/questions/31247198/python-pandas-write-content-of-dataframe-into-text-file (Accessed: 19th April 2021).
