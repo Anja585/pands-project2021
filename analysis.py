@@ -58,21 +58,15 @@ sepal_length_boxplot = ax1.boxplot(sepal_length_to_plot, # using asix instance a
 ax1.set_title("sepal_length_boxplot") # setting up a title
 
 # 4.5. Boxplot 2
-sepal_width_boxplot = ax2.boxplot(sepal_width_to_plot,
-                                  patch_artist=True,
-                                  labels=labels)
+sepal_width_boxplot = ax2.boxplot(sepal_width_to_plot, patch_artist=True, labels=labels)
 ax2.set_title("sepal_width_boxplot")
 
 # 4.6. Boxplot 3
-petal_length_boxplot = ax3.boxplot(petal_length_to_plot,
-                                  patch_artist=True,
-                                  labels=labels)
+petal_length_boxplot = ax3.boxplot(petal_length_to_plot, patch_artist=True, labels=labels)
 ax3.set_title("petal_length_boxplot")
 
 # 4.7. Boxplot 4
-petal_width_boxplot = ax4.boxplot(petal_width_to_plot,
-                                  patch_artist=True,
-                                  labels=labels)
+petal_width_boxplot = ax4.boxplot(petal_width_to_plot, patch_artist=True, labels=labels)
 ax4.set_title("petal_width_boxplot")
 
 # 4.8. Fill the colors
@@ -91,10 +85,7 @@ plt.show() # show the boxplot
 
 # 5.1. Histogram 1
 for sepal_length, color in zip(sepal_length_to_plot, colors):
-    sepal_length_histogram = plt.hist(sepal_length,
-                                      alpha=0.75,
-                                      bins=15,
-                                      color=color)
+    sepal_length_histogram = plt.hist(sepal_length, alpha=0.75, bins=15, color=color)
 
 plt.legend(labels)
 plt.xlabel("sepal_length")
@@ -105,10 +96,8 @@ plt.show()
 
 # 5.2. Histogram 2
 for sepal_width, color in zip(sepal_width_to_plot, colors):
-    sepal_width_histogram = plt.hist(sepal_width,
-                                     alpha=0.75,
-                                     bins=15,
-                                     color=color)
+    sepal_width_histogram = plt.hist(sepal_width, alpha=0.75, bins=15, color=color)
+
 plt.legend(labels)
 plt.xlabel("sepal_width")
 plt.ylabel("frequency")
@@ -118,10 +107,8 @@ plt.show()
 
 # 5.3. Histogram 3
 for petal_length, color in zip(petal_length_to_plot, colors):
-    petal_length_histogram = plt.hist(petal_length, 
-                                      alpha=0.75,
-                                      bins=15,
-                                      color=color)
+    petal_length_histogram = plt.hist(petal_length, alpha=0.75, bins=15, color=color)
+
 plt.legend(labels)
 plt.xlabel("petal_length")
 plt.ylabel("frequency")
@@ -131,10 +118,8 @@ plt.show()
 
 # 5.4. Histogram 4
 for petal_width, color in zip(petal_width_to_plot, colors):
-    petal_width_histogram = plt.hist(petal_width,
-                                     alpha=0.75,
-                                     bins=15,
-                                     color=color)
+    petal_width_histogram = plt.hist(petal_width, alpha=0.75, bins=15, color=color)
+
 plt.legend(labels)
 plt.xlabel("petal_width")
 plt.ylabel("frequency")
@@ -143,6 +128,60 @@ plt.savefig('10_petal_width_histogram.png')
 plt.show()
 
 # 6. Working out the scatter plots
+
+# 6.1. Scatter plot 1
+fig, ax1 = plt.subplots()
+for x, y, color in zip(sepal_length_to_plot, sepal_width_to_plot, colors):    
+    scatter = ax1.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("sepal_length")
+plt.ylabel("sepal_width")
+plt.show()
+
+# 6.2 Scatter plot 2
+fig, ax2 = plt.subplots()
+for x, y, color in zip(sepal_length_to_plot, petal_length_to_plot, colors):    
+    ax2.scatter(x, y, color=color) 
+plt.legend(labels)
+plt.xlabel("sepal_length")
+plt.ylabel("petal_length")
+plt.show()
+
+# 6.3. Scatter plot 3
+fig, ax3 = plt.subplots()
+for x, y, color in zip(sepal_length_to_plot, petal_width_to_plot, colors):    
+    ax3.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("sepal_length")
+plt.ylabel("petal_width")
+plt.show()
+
+# 6.4. Scatter plot 4
+fig, ax4 = plt.subplots()
+for x, y, color in zip(sepal_width_to_plot, petal_length_to_plot, colors):    
+    ax4.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("sepal_width")
+plt.ylabel("petal_length")
+plt.show()
+
+# 6.5. Scatter plot 5
+fig, ax5 = plt.subplots()
+for x, y, color in zip(sepal_width_to_plot, petal_width_to_plot, colors):    
+    ax5.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("sepal_width")
+plt.ylabel("petal_width")
+plt.show()
+
+# 6.6. Scatter plot 6
+fig, ax6 = plt.subplots()
+for x, y, color in zip(petal_length_to_plot, petal_width_to_plot, colors):    
+    ax6.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("petal_length")
+plt.ylabel("petal_width")
+plt.show()
 
 
 
@@ -159,3 +198,4 @@ plt.show()
 # matplotlib.pyplot.subplots, Available at: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots (Accessed: 21st April 2021).
 # Python zip() Function, Available at: https://www.w3schools.com/python/ref_func_zip.asp (Accessed: 22nd April 2021).
 # Plot two histograms on single chart with matplotlib, Available at: https://stackoverflow.com/questions/6871201/plot-two-histograms-on-single-chart-with-matplotlib (Accessed: 23rd April 2021).
+# MatPlotLib: Multiple datasets on the same scatter plot, Available at: https://stackoverflow.com/questions/4270301/matplotlib-multiple-datasets-on-the-same-scatter-plot (Accessed: 26th April 2021).
