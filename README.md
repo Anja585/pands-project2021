@@ -52,3 +52,7 @@ All measures were given in centimeters. The Iris flower data set is now widely u
 17. matplotlib.pyplot.subplots, Available at: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots (Accessed: 21st April 2021).
 18. Python zip() Function, Available at: https://www.w3schools.com/python/ref_func_zip.asp (Accessed: 22nd April 2021).
 19. Box Plot (Box and Whiskers): How to Read One & How to Make One in Excel, TI-83, SPSS, Available at: https://www.statisticshowto.com/probability-and-statistics/descriptive-statistics/box-plot/ (Accessed: 22nd April 2021).
+20. (2014) Probability Density Function/Probability Distribution Function: Definition, TI83 NormalPDF, Available at: https://www.statisticshowto.com/probability-density-function/ (Accessed: 23rd April 2021).
+21. Plot two histograms on single chart with matplotlib, Available at: https://stackoverflow.com/questions/6871201/plot-two-histograms-on-single-chart-with-matplotlib (Accessed: 23rd April 2021).
+22. MatPlotLib: Multiple datasets on the same scatter plot, Available at: https://stackoverflow.com/questions/4270301/matplotlib-multiple-datasets-on-the-same-scatter-plot (Accessed: 25th April 2021).
+23.  MatPlotLib: Multiple datasets on the same scatter plot, Available at: https://stackoverflow.com/questions/4270301/matplotlib-multiple-datasets-on-the-same-scatter-plot (Accessed: 26th April 2021).
