@@ -8,15 +8,18 @@ import matplotlib.pyplot as plt
 
 # 2. Working out the summary of each variable within the data set
 iris = pd.read_csv("01_iris.data") # loading data set into a DataFrame
+df = pd.DataFrame(iris) # defining data frame
 iris_setosa = iris[iris["iris_type"] == "Iris-setosa"] # isolating rows only for iris Setosa's from a DataFrame 
 iris_versicolor = iris[iris["iris_type"] == "Iris-versicolor"] # isolating rows only for iris Versicolor's from a DataFrame
-iris_virginica = iris[iris["iris_type"] == "Iris-virginica"] # isolating rows only for iris Virginica's from a DataFrame         
+iris_virginica = iris[iris["iris_type"] == "Iris-virginica"] # isolating rows only for iris Virginica's from a DataFrame   
+iris_types_summary = df.describe(include=[np.object]) # summary of descriptive statistics for character columns      
 iris_setosa_summary = iris_setosa.describe() # summary of descriptive statistics for iris Setosa
 iris_versicolor_summary = iris_versicolor.describe() # summary of descriptive statistics for iris Versicolor
 iris_virginica_summary = iris_virginica.describe() # summary of descriptive statistics for iris Virginica
 
 # 3. Copying the summary of descriptive statistics into txt file 
 with open ("04_iris_data_summary", "w") as f: # opening txt file for writing in test mode
+    f.write("varieties\n{}\n\n".format(str(iris_types_summary))) # overwriting the summary of descriptive statistics for character chategory into a txt file     
     f.write("iris setosa\n{}\n\n".format(str(iris_setosa_summary))) # overwriting the summary of descriptive statistics for iris Setosa into a txt file  
     f.write("iris versicolor\n{}\n\n".format(str(iris_versicolor_summary))) # overwriting the summary of descriptive statistics for iris Versicolor into a txt file
     f.write("iris virginica\n{}\n\n".format(str(iris_virginica_summary))) # overwriting the summary of descriptive statistics for iris Virginica into a txt file
@@ -127,62 +130,73 @@ plt.title("petal_width_histogram")
 plt.savefig('10_petal_width_histogram.png')
 plt.show()
 
-# 6. Working out the scatter plots
+# 6. Correlation
 
-# 6.1. Scatter plot 1
+
+
+
+
+# 7. Working out the scatter plots
+
+# 7.1. Scatter plot 1
 fig, ax1 = plt.subplots()
 for x, y, color in zip(sepal_length_to_plot, sepal_width_to_plot, colors):    
     scatter = ax1.scatter(x, y, color=color)
 plt.legend(labels)
 plt.xlabel("sepal_length")
 plt.ylabel("sepal_width")
+plt.savefig('11_petwid_sepwid_scatterplot.png')
 plt.show()
 
-# 6.2 Scatter plot 2
+# 7.2 Scatter plot 2
 fig, ax2 = plt.subplots()
 for x, y, color in zip(sepal_length_to_plot, petal_length_to_plot, colors):    
     ax2.scatter(x, y, color=color) 
 plt.legend(labels)
 plt.xlabel("sepal_length")
 plt.ylabel("petal_length")
+plt.savefig('12_seplen_petlen_scatterplot.png')
 plt.show()
 
-# 6.3. Scatter plot 3
+# 7.3. Scatter plot 3
 fig, ax3 = plt.subplots()
 for x, y, color in zip(sepal_length_to_plot, petal_width_to_plot, colors):    
     ax3.scatter(x, y, color=color)
 plt.legend(labels)
 plt.xlabel("sepal_length")
 plt.ylabel("petal_width")
+plt.savefig('13_seplen_petwid_scatterplot.png')
 plt.show()
 
-# 6.4. Scatter plot 4
+# 7.4. Scatter plot 4
 fig, ax4 = plt.subplots()
 for x, y, color in zip(sepal_width_to_plot, petal_length_to_plot, colors):    
     ax4.scatter(x, y, color=color)
 plt.legend(labels)
 plt.xlabel("sepal_width")
 plt.ylabel("petal_length")
+plt.savefig('14_sepwid_petlen_scatterplot.png')
 plt.show()
 
-# 6.5. Scatter plot 5
-fig, ax5 = plt.subplots()
-for x, y, color in zip(sepal_width_to_plot, petal_width_to_plot, colors):    
-    ax5.scatter(x, y, color=color)
-plt.legend(labels)
-plt.xlabel("sepal_width")
-plt.ylabel("petal_width")
-plt.show()
-
-# 6.6. Scatter plot 6
+# 7.5. Scatter plot 6
 fig, ax6 = plt.subplots()
 for x, y, color in zip(petal_length_to_plot, petal_width_to_plot, colors):    
     ax6.scatter(x, y, color=color)
 plt.legend(labels)
 plt.xlabel("petal_length")
 plt.ylabel("petal_width")
+plt.savefig('15_petlen_petwid_scatterplot.png')
 plt.show()
 
+# 7.6. Scatter plot 5
+fig, ax5 = plt.subplots()
+for x, y, color in zip(sepal_width_to_plot, petal_width_to_plot, colors):    
+    ax5.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("sepal_width")
+plt.ylabel("petal_width")
+plt.savefig('16_sepwid_petwid_scatterplot.png')
+plt.show()
 
 
 # References: 
@@ -199,3 +213,4 @@ plt.show()
 # Python zip() Function, Available at: https://www.w3schools.com/python/ref_func_zip.asp (Accessed: 22nd April 2021).
 # Plot two histograms on single chart with matplotlib, Available at: https://stackoverflow.com/questions/6871201/plot-two-histograms-on-single-chart-with-matplotlib (Accessed: 23rd April 2021).
 # MatPlotLib: Multiple datasets on the same scatter plot, Available at: https://stackoverflow.com/questions/4270301/matplotlib-multiple-datasets-on-the-same-scatter-plot (Accessed: 26th April 2021).
+# DESCRIPTIVE OR SUMMARY STATISTICS IN PYTHON PANDAS – DESCRIBE(), Available at: https://www.datasciencemadesimple.com/descriptive-summary-statistics-python-pandas/ (Accessed: 27th April 2021).
