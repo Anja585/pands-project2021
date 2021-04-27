@@ -1,3 +1,10 @@
+varieties
+             iris_type
+count              150
+unique               3
+top     Iris-virginica
+freq                50
+
 iris setosa
        sepal_length  sepal_width  petal_length  petal_width
 count      50.00000    50.000000     50.000000     50.00000
