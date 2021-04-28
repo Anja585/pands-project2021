@@ -1,10 +1,11 @@
 # analysis.py
+# Analysis of iris flower data set for Programming and Scripting module 2021
 # Author: Anja Antolkovic
 
 # 1. Importing relevant libraries
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt 
+import pandas as pd # used to read the data into Pandas data frame and efficient work with  data 
+import numpy as np # used for descriptive statistics calculations  
+import matplotlib.pyplot as plt # used for plotting  
 
 # 2. Working out the summary of each variable within the data set
 iris = pd.read_csv("01_iris.data") # loading data set into a DataFrame
@@ -27,7 +28,7 @@ with open ("04_iris_data_summary", "w") as f: # opening txt file for writing in 
 # 4. Working out the boxplots 
 
 # 4.1. Creating the object variables for each attribute for each class
-sepal_length_setosa = iris_setosa.sepal_length
+sepal_length_setosa = iris_setosa.sepal_length 
 sepal_length_versicolor = iris_versicolor.sepal_length
 sepal_length_virginica = iris_virginica.sepal_length
 sepal_width_setosa = iris_setosa.sepal_width
@@ -87,15 +88,18 @@ plt.show() # show the boxplot
 # 5. Working out the histograms
 
 # 5.1. Histogram 1
-for sepal_length, color in zip(sepal_length_to_plot, colors):
-    sepal_length_histogram = plt.hist(sepal_length, alpha=0.75, bins=15, color=color)
+for sepal_length, color in zip(sepal_length_to_plot, colors): # iterates over a list of lengths and colors, zip method pairs each item from the length and color list together in sequential order
+    sepal_length_histogram = plt.hist(sepal_length, # passing data to plot the histogram from
+                                      alpha=0.75, # adjusting the transparency 
+                                      bins=15, # defines the equal-width bins in the range.
+                                      color=color) # setting the color
 
-plt.legend(labels)
-plt.xlabel("sepal_length")
-plt.ylabel("frequency")
-plt.title("sepal_length_histogram")
-plt.savefig('07_sepal_length_histogram.png')
-plt.show()
+plt.legend(labels) # adding the legend
+plt.xlabel("sepal_length") # labeling the plot
+plt.ylabel("frequency") # labeling the plot
+plt.title("sepal_length_histogram") # adding the title
+plt.savefig('07_sepal_length_histogram.png') # saving the plot
+plt.show() # showing the plot 
 
 # 5.2. Histogram 2
 for sepal_width, color in zip(sepal_width_to_plot, colors):
@@ -131,27 +135,28 @@ plt.savefig('10_petal_width_histogram.png')
 plt.show()
 
 # 6. Correlation
+corrMatrix_setosa = iris_setosa.corr() # correlation matrix for iris setosa
+corrMatrix_versicolor = iris_versicolor.corr() # correlation matrix for iris versicolor
+corrMatrix_virginica = iris_virginica.corr() # correlation matrix for iris virginica 
 
-corrMatrix_setosa = iris_setosa.corr()
-corrMatrix_versicolor = iris_versicolor.corr()
-corrMatrix_virginica = iris_virginica.corr()
-
-with open ("04_iris_data_summary", "a") as f: # opening txt file for writing in test mode
-    f.write("correlation matrix setosa\n{}\n\n".format(str(corrMatrix_setosa)))
-    f.write("correlation matrix versicolor\n{}\n\n".format(str(corrMatrix_versicolor)))
-    f.write("correlation matrix virginica\n{}\n\n".format(str(corrMatrix_virginica)))
+with open ("04_iris_data_summary", "a") as f: # opening txt file for appending in test mode
+    f.write("correlation matrix setosa\n{}\n\n".format(str(corrMatrix_setosa)))  # appending the correlation matrix for iris setosa into a txt file
+    f.write("correlation matrix versicolor\n{}\n\n".format(str(corrMatrix_versicolor))) # appending the correlation matrix for iris versicolor into a txt file
+    f.write("correlation matrix virginica\n{}\n\n".format(str(corrMatrix_virginica))) # appending the correlation matrix for iris virginica into a txt file
 
 # 7. Working out the scatter plots
 
 # 7.1. Scatter plot 1
-fig, ax1 = plt.subplots()
-for x, y, color in zip(sepal_length_to_plot, sepal_width_to_plot, colors):    
-    scatter = ax1.scatter(x, y, color=color)
-plt.legend(labels)
-plt.xlabel("sepal_length")
-plt.ylabel("sepal_width")
-plt.savefig('11_petwid_sepwid_scatterplot.png')
-plt.show()
+fig, ax1 = plt.subplots() # this line of code defines a figure instance, axis insance and a set of subplots 
+                          # fig-> figure instance
+                          # ax -> axis instance
+for x, y, color in zip(sepal_length_to_plot, sepal_width_to_plot, colors): # iterates over a list of lengths, widths and colors, zip method pairs each item from the length, widths color lists together in sequential order   
+    scatter = ax1.scatter(x, y, color=color) # passing data to plot the histogram from
+plt.legend(labels) # adding the legend
+plt.xlabel("sepal_length") # labeling the plot
+plt.ylabel("sepal_width") # labeling the plot
+plt.savefig('11_petwid_sepwid_scatterplot.png') # saving the plot
+plt.show() # showing the plot
 
 # 7.2 Scatter plot 2
 fig, ax2 = plt.subplots()
@@ -203,7 +208,6 @@ plt.ylabel("petal_width")
 plt.savefig('16_sepwid_petwid_scatterplot.png')
 plt.show()
 
-
 # References: 
 # (2021) Python, Pandas : write content of DataFrame into text File, Available at: https://stackoverflow.com/questions/31247198/python-pandas-write-content-of-dataframe-into-text-file (Accessed: 19th April 2021).
 # (2021) TypeError: write() argument must be str, not list, Available at: https://stackoverflow.com/questions/41454921/typeerror-write-argument-must-be-str-not-list (Accessed: 19th April 2021).
@@ -219,3 +223,4 @@ plt.show()
 # Plot two histograms on single chart with matplotlib, Available at: https://stackoverflow.com/questions/6871201/plot-two-histograms-on-single-chart-with-matplotlib (Accessed: 23rd April 2021).
 # MatPlotLib: Multiple datasets on the same scatter plot, Available at: https://stackoverflow.com/questions/4270301/matplotlib-multiple-datasets-on-the-same-scatter-plot (Accessed: 26th April 2021).
 # DESCRIPTIVE OR SUMMARY STATISTICS IN PYTHON PANDAS – DESCRIBE(), Available at: https://www.datasciencemadesimple.com/descriptive-summary-statistics-python-pandas/ (Accessed: 27th April 2021).
+# (2020) How to Create a Correlation Matrix using Pandas, Available at: https://datatofish.com/correlation-matrix-pandas/ (Accessed: 28th April 2021).
