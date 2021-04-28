@@ -56,3 +56,5 @@ All measures were given in centimeters. The Iris flower data set is now widely u
 21. Plot two histograms on single chart with matplotlib, Available at: https://stackoverflow.com/questions/6871201/plot-two-histograms-on-single-chart-with-matplotlib (Accessed: 23rd April 2021).
 22. MatPlotLib: Multiple datasets on the same scatter plot, Available at: https://stackoverflow.com/questions/4270301/matplotlib-multiple-datasets-on-the-same-scatter-plot (Accessed: 25th April 2021).
 23.  MatPlotLib: Multiple datasets on the same scatter plot, Available at: https://stackoverflow.com/questions/4270301/matplotlib-multiple-datasets-on-the-same-scatter-plot (Accessed: 26th April 2021).
+24. DESCRIPTIVE OR SUMMARY STATISTICS IN PYTHON PANDAS – DESCRIBE(), Available at: https://www.datasciencemadesimple.com/descriptive-summary-statistics-python-pandas/ (Accessed: 27th April 2021).
+25. (2020) How to Create a Correlation Matrix using Pandas, Available at: https://datatofish.com/correlation-matrix-pandas/ (Accessed: 28th April 2021).
