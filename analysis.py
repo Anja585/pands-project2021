@@ -132,9 +132,14 @@ plt.show()
 
 # 6. Correlation
 
+corrMatrix_setosa = iris_setosa.corr()
+corrMatrix_versicolor = iris_versicolor.corr()
+corrMatrix_virginica = iris_virginica.corr()
 
-
-
+with open ("04_iris_data_summary", "a") as f: # opening txt file for writing in test mode
+    f.write("correlation matrix setosa\n{}\n\n".format(str(corrMatrix_setosa)))
+    f.write("correlation matrix versicolor\n{}\n\n".format(str(corrMatrix_versicolor)))
+    f.write("correlation matrix virginica\n{}\n\n".format(str(corrMatrix_virginica)))
 
 # 7. Working out the scatter plots
 
