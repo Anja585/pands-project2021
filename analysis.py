@@ -3,7 +3,7 @@
 # Author: Anja Antolkovic
 
 # 1. Importing relevant libraries
-import pandas as pd # used to read the data into Pandas data frame and efficient work with  data 
+import pandas as pd # used to read the data into Pandas data frame and efficient work with data 
 import numpy as np # used for descriptive statistics calculations  
 import matplotlib.pyplot as plt # used for plotting  
 
