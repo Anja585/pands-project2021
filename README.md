@@ -31,7 +31,97 @@ All measures were given in centimeters. The Iris flower data set is now widely u
 148           6.2          3.4           5.4          2.3  Iris-virginica
 149           5.9          3.0           5.1          1.8  Iris-virginica    
 ```
+# Descriptive statistics
+## Libraries
+The first step is to import all necessary libraries of Python that will be used for data analysis. 
+```
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt
+```
+* Pandas is a software library written for the Python programming language for data manipulation and analysis. We will use Pandas to read the data into Pandas data frame and efficient work with data. 
+* Numpy is a library for the Python programming language, used for working with arrays. NumPy is short for "Numerical Python". We will use Numpy for descriptive statistics calculations. 
+* Mathplotlib is a low-level graph plotting library in Python that serves as a visualization utility. Pyplot is a submodule of Mathplotlib. We are using mathplotlib.pyplot for plotting.
+## Summary of the data 
+Iris data set is stored as a CSV file (comma-separated file) as 01_iris.data. 
+We are loading the file into a Pandas data frame.
 
+```
+iris = pd.read_csv("01_iris.data") 
+```
+Putting data frame into an object variable. 
+```
+df = pd.DataFrame(iris) 
+```
+Next, we are selecting a subset of a data frame by filtering rows for Setosa, Versicolor and Virginica iris types separately. 
+```
+iris_setosa = iris[iris["iris_type"] == "Iris-setosa"]  
+iris_versicolor = iris[iris["iris_type"] == "Iris-versicolor"] 
+iris_virginica = iris[iris["iris_type"] == "Iris-virginica"]
+```
+We are using describe() method to get the summary of descriptive statistics for each variable. 
+```
+iris_types_summary = df.describe(include=[np.object])       
+iris_setosa_summary = iris_setosa.describe() 
+iris_versicolor_summary = iris_versicolor.describe() 
+iris_virginica_summary = iris_virginica.describe() 
+```
+Finally, data is overwritten into a txt file '04_iris_data_summary'. 
+```
+with open ("04_iris_data_summary", "w") as f: 
+    f.write("varieties\n{}\n\n".format(str(iris_types_summary))) 
+    f.write("iris setosa\n{}\n\n".format(str(iris_setosa_summary))) 
+    f.write("iris versicolor\n{}\n\n".format(str(iris_versicolor_summary))) 
+    f.write("iris virginica\n{}\n\n".format(str(iris_virginica_summary))) 
+```
+First table gives the summary of descriptive statistics of a character variable 'iris_type'. The table shows there are 150 instances in total, 50 for each iris type. There are 3 unique iris types where iris Setosa is on the top of the list.  
+```
+varieties
+          iris_type
+count           150
+unique            3
+top     Iris-setosa
+freq             50
+```
+The output of the descriptive statistics information for quantitative variables are presented in the tables below. 
+
+Count marks the number of instances in the sample for each variable type. Mean is the average of each variable measured in centimeters. Standard deviation express how much the members of a group differ from the mean value for the group. The table also gives values of minimun and maximum values, median (50%), first (25%) and third quartile (75%).
+```
+iris setosa
+       sepal_length  sepal_width  petal_length  petal_width
+count      50.00000    50.000000     50.000000     50.00000
+mean        5.00600     3.418000      1.464000      0.24400
+std         0.35249     0.381024      0.173511      0.10721
+min         4.30000     2.300000      1.000000      0.10000
+25%         4.80000     3.125000      1.400000      0.20000
+50%         5.00000     3.400000      1.500000      0.20000
+75%         5.20000     3.675000      1.575000      0.30000
+max         5.80000     4.400000      1.900000      0.60000
+```
+```
+iris versicolor
+       sepal_length  sepal_width  petal_length  petal_width
+count     50.000000    50.000000     50.000000    50.000000
+mean       5.936000     2.770000      4.260000     1.326000
+std        0.516171     0.313798      0.469911     0.197753
+min        4.900000     2.000000      3.000000     1.000000
+25%        5.600000     2.525000      4.000000     1.200000
+50%        5.900000     2.800000      4.350000     1.300000
+75%        6.300000     3.000000      4.600000     1.500000
+max        7.000000     3.400000      5.100000     1.800000
+```
+```
+iris virginica
+       sepal_length  sepal_width  petal_length  petal_width
+count      50.00000    50.000000     50.000000     50.00000
+mean        6.58800     2.974000      5.552000      2.02600
+std         0.63588     0.322497      0.551895      0.27465
+min         4.90000     2.200000      4.500000      1.40000
+25%         6.22500     2.800000      5.100000      1.80000
+50%         6.50000     3.000000      5.550000      2.00000
+75%         6.90000     3.175000      5.875000      2.30000
+max         7.90000     3.800000      6.900000      2.50000
+```
 # References
 1. (25th February 2021) Iris flower data set, Available at: https://en.wikipedia.org/wiki/Iris_flower_data_set (Accessed: 15th April 2021).
 2. Real Python (20th June 2019) PEP8 Tips: Python Naming Conventions, Available at: https://www.youtube.com/watch?v=Uw95Uc3xgWU (Accessed: 17th April 2021).
@@ -58,3 +148,7 @@ All measures were given in centimeters. The Iris flower data set is now widely u
 23.  MatPlotLib: Multiple datasets on the same scatter plot, Available at: https://stackoverflow.com/questions/4270301/matplotlib-multiple-datasets-on-the-same-scatter-plot (Accessed: 26th April 2021).
 24. DESCRIPTIVE OR SUMMARY STATISTICS IN PYTHON PANDAS – DESCRIBE(), Available at: https://www.datasciencemadesimple.com/descriptive-summary-statistics-python-pandas/ (Accessed: 27th April 2021).
 25. (2020) How to Create a Correlation Matrix using Pandas, Available at: https://datatofish.com/correlation-matrix-pandas/ (Accessed: 28th April 2021).
+26. pandas (software), Available at: https://en.wikipedia.org/wiki/Pandas_(software) (Accessed: 29th April 2021).
+27. NumPy, Available at: https://en.wikipedia.org/wiki/NumPy (Accessed: 29th April 2021).
+28. NumPy Tutorial, Available at: https://www.w3schools.com/python/numpy/default.asp (Accessed: 29th April 2021).
+29. Matplotlib Tutorial, Available at: https://www.w3schools.com/python/matplotlib_intro.asp (Accessed: 29th April 2021).
