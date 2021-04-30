@@ -43,17 +43,17 @@ import matplotlib.pyplot as plt
 * Numpy is a library for the Python programming language, used for working with arrays. NumPy is short for "Numerical Python". We will use Numpy for descriptive statistics calculations. 
 * Mathplotlib is a low-level graph plotting library in Python that serves as a visualization utility. Pyplot is a submodule of Mathplotlib. We are using mathplotlib.pyplot for plotting.
 ## Summary of the data 
-Iris data set is stored as a CSV file (comma-separated file) as '01_iris.data'. 
-We are loading the file into a Pandas data frame.
+Iris data set is stored as a file (comma-separated file) as '01_iris.data'. 
+We are loading the file into a Pandas dataframe.
 
 ```
 iris = pd.read_csv("01_iris.data") 
 ```
-Putting data frame into an object variable. 
+Putting dataframe into an object variable. 
 ```
 df = pd.DataFrame(iris) 
 ```
-Next, we are selecting a subset of a data frame by filtering rows for Setosa, Versicolor and Virginica iris types separately. 
+Next, we are selecting a subset of a dataframe by filtering rows for Setosa, Versicolor and Virginica iris types separately. 
 ```
 iris_setosa = iris[iris["iris_type"] == "Iris-setosa"]  
 iris_versicolor = iris[iris["iris_type"] == "Iris-versicolor"] 
@@ -123,8 +123,9 @@ min         4.90000     2.200000      4.500000      1.40000
 max         7.90000     3.800000      6.900000      2.50000
 ```
 ## Boxplots 
-We are visualizing data summary output in box plots. Box plot (also called box and whiskers plot) displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile, median, third quartile, and maximum. The five-number summary divides the data into sections that each contain approximately 25%, percent of the data in that set. Example of a boxplot is presented in a below image. 
+We are visualizing data summary output in boxplots. Boxplot (also called box and whiskers plot) displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile, median, third quartile, and maximum. The five-number summary divides the data into sections that each contain approximately 25%, percent of the data in that set. Example of a boxplot is presented in a below image. 
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/06_boxplot_example.jpg)
+(source: https://www.statisticshowto.com/probability-and-statistics/descriptive-statistics/box-plot/)
 
 We are creating the object variables for each attribute for each class.
 ```
@@ -183,7 +184,7 @@ for boxplot in (sepal_length_boxplot, sepal_width_boxplot, petal_length_boxplot,
 ```
 Isolated points (little cicles) in boxplots are outliners - piece of data that is an abnormal distance from other points. Looking at the boxplot we can see there are not many of them, so they wouldn't have a large impact on the statistics.
 
-The below image of boxplots for each variable type shows petal length and petal width measures are the best indicators to use for determining the type of iris.  
+The below image of boxplots for each variable type shows petal length and petal width measures are the best indicators to use for determining the iris type.  
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/05_boxplot.png)
 ## Histograms 
 Plotting the histograms using matplotlib.pyplot.
@@ -233,9 +234,13 @@ plt.savefig('10_petal_width_histogram.png')
 plt.show()
 ```
 The below images of histograms for each variable type shows petal length and petal width measures are the best indicators to use for determining the type of iris because there is least amount of overlap between histograms. 
+* sepal length
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/07_sepal_length_histogram.png)
+* sepal width
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/08_sepal_width_histogram.png)
+* petal length
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/09_petal_length_histogram.png)
+* petal width
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/10_petal_width_histogram.png)
 ## Correlation 
 Pandas dataframe and corr() method is used to find the pairwise correlation of all columns in the dataframe for each iris type separately.
@@ -279,6 +284,8 @@ petal_length      0.864225     0.401045      1.000000     0.322108
 petal_width       0.281108     0.537728      0.322108     1.000000
 ```
 ## Scatter plots
+Correlation between two variables can be visualy presented in scatter plots. 
+
 Plotting the scatter plots using matplotlib.pyplot.
 ```
 Scatter plot 1
@@ -341,12 +348,17 @@ plt.ylabel("petal_width")
 plt.savefig('16_sepwid_petwid_scatterplot.png')
 plt.show()
 ```
-
+* sepal length vs sepal width
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/11_petwid_sepwid_scatterplot.png)
+* sepal length vs petal length
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/12_seplen_petlen_scatterplot.png)
+* sepal length vs petal width
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/13_seplen_petwid_scatterplot.png)
+* sepal width vs petal length
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/14_sepwid_petlen_scatterplot.png)
+* petal length vs petal width
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/15_petlen_petwid_scatterplot.png)
+* sepal width vs petal width
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/16_sepwid_petwid_scatterplot.png)
 
 # References
