@@ -16,7 +16,7 @@ The attributes measured were:
 All measures were given in centimeters. The Iris flower data set is now widely used as a data set for testing purposes in computer science. Below is an image of each flower type and a summary of samples presented in a table. 
 
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/iris_versicolor_setosa_virginica.jpg)
-
+(source: https://www.datacamp.com/community/tutorials/machine-learning-in-r)
 ```
      sepal-length  sepal_width  petal_length  petal_width    type_of_Iris
 0             5.1          3.5           1.4          0.2     Iris-setosa
@@ -251,11 +251,11 @@ with open ("04_iris_data_summary", "a") as f: mode
     f.write("correlation matrix versicolor\n{}\n\n".format(str(corrMatrix_versicolor))) 
     f.write("correlation matrix virginica\n{}\n\n".format(str(corrMatrix_virginica)))
 ```
-Correlation coefficients are used to measure how strong a relationship is between two variables. Correlation coefficient can take the value anywhere between -1 and 1 where:
+
+A correlation between variables indicates that as one variable changes in value, the other variable tends to change in a specific direction. The correlation coefficient is a statistical measure that measures both the direction and the strength of this tendency. The correlation coefficient can take the value anywhere between -1 and 1 where:
 * 1 indicates a strong positive relationship,
 * -1 indicates a strong negative relationship,
 * zero indicates no relationship at all.
-
 ```
 correlation matrix setosa
               sepal_length  sepal_width  petal_length  petal_width
@@ -278,6 +278,76 @@ sepal_width       0.457228     1.000000      0.401045     0.537728
 petal_length      0.864225     0.401045      1.000000     0.322108
 petal_width       0.281108     0.537728      0.322108     1.000000
 ```
+## Scatter plots
+Plotting the scatter plots using matplotlib.pyplot.
+```
+Scatter plot 1
+fig, ax1 = plt.subplots() 
+for x, y, color in zip(sepal_length_to_plot, sepal_width_to_plot, colors): 
+    scatter = ax1.scatter(x, y, color=color) # passing data to plot the histogram from
+plt.legend(labels) 
+plt.xlabel("sepal_length") 
+plt.ylabel("sepal_width") 
+plt.savefig('11_petwid_sepwid_scatterplot.png') 
+plt.show() 
+
+Scatter plot 2
+fig, ax2 = plt.subplots()
+for x, y, color in zip(sepal_length_to_plot, petal_length_to_plot, colors):    
+    ax2.scatter(x, y, color=color) 
+plt.legend(labels)
+plt.xlabel("sepal_length")
+plt.ylabel("petal_length")
+plt.savefig('12_seplen_petlen_scatterplot.png')
+plt.show()
+
+Scatter plot 3
+fig, ax3 = plt.subplots()
+for x, y, color in zip(sepal_length_to_plot, petal_width_to_plot, colors):    
+    ax3.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("sepal_length")
+plt.ylabel("petal_width")
+plt.savefig('13_seplen_petwid_scatterplot.png')
+plt.show()
+
+Scatter plot 4
+fig, ax4 = plt.subplots()
+for x, y, color in zip(sepal_width_to_plot, petal_length_to_plot, colors):    
+    ax4.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("sepal_width")
+plt.ylabel("petal_length")
+plt.savefig('14_sepwid_petlen_scatterplot.png')
+plt.show()
+
+Scatter plot 6
+fig, ax6 = plt.subplots()
+for x, y, color in zip(petal_length_to_plot, petal_width_to_plot, colors):    
+    ax6.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("petal_length")
+plt.ylabel("petal_width")
+plt.savefig('15_petlen_petwid_scatterplot.png')
+plt.show()
+
+Scatter plot 5
+fig, ax5 = plt.subplots()
+for x, y, color in zip(sepal_width_to_plot, petal_width_to_plot, colors):    
+    ax5.scatter(x, y, color=color)
+plt.legend(labels)
+plt.xlabel("sepal_width")
+plt.ylabel("petal_width")
+plt.savefig('16_sepwid_petwid_scatterplot.png')
+plt.show()
+```
+
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/11_petwid_sepwid_scatterplot.png)
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/12_seplen_petlen_scatterplot.png)
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/13_seplen_petwid_scatterplot.png)
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/14_sepwid_petlen_scatterplot.png)
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/15_petlen_petwid_scatterplot.png)
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/16_sepwid_petwid_scatterplot.png)
 
 # References
 1. (25th February 2021) Iris flower data set, Available at: https://en.wikipedia.org/wiki/Iris_flower_data_set (Accessed: 15th April 2021).
