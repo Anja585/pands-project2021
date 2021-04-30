@@ -158,15 +158,19 @@ fig, (ax1, ax2, ax3, ax4) = plt.subplots(1, 4, figsize=(12,8))
 ```
 Plotting the box plots using matplotlib.pyplot.
 ```
+Boxplot 1 
 sepal_length_boxplot = ax1.boxplot(sepal_length_to_plot, patch_artist=True, labels=labels) 
 ax1.set_title("sepal_length_boxplot") 
 
+Boxplot 2
 sepal_width_boxplot = ax2.boxplot(sepal_width_to_plot, patch_artist=True, labels=labels)
 ax2.set_title("sepal_width_boxplot")
 
+Boxplot 3
 petal_length_boxplot = ax3.boxplot(petal_length_to_plot, patch_artist=True, labels=labels)
 ax3.set_title("petal_length_boxplot")
 
+Boxplot 4
 petal_width_boxplot = ax4.boxplot(petal_width_to_plot, patch_artist=True, labels=labels)
 ax4.set_title("petal_width_boxplot")
 ```
@@ -184,6 +188,7 @@ The below image of boxplots for each variable type shows petal length and petal 
 ## Histograms 
 Plotting the histograms using matplotlib.pyplot.
 ```
+Histogram 1
 for sepal_length, color in zip(sepal_length_to_plot, colors):
     sepal_length_histogram = plt.hist(sepal_length, alpha=0.75, bins=15, color=color) 
 
@@ -194,6 +199,7 @@ plt.title("sepal_length_histogram")
 plt.savefig('07_sepal_length_histogram.png') 
 plt.show() 
 
+Histogram 2
 for sepal_width, color in zip(sepal_width_to_plot, colors):
     sepal_width_histogram = plt.hist(sepal_width, alpha=0.75, bins=15, color=color)
 
@@ -204,6 +210,7 @@ plt.title("sepal_width_histogram")
 plt.savefig('08_sepal_width_histogram.png')
 plt.show()
 
+Histogram 3
 for petal_length, color in zip(petal_length_to_plot, colors):
     petal_length_histogram = plt.hist(petal_length, alpha=0.75, bins=15, color=color)
 
@@ -214,6 +221,7 @@ plt.title("petal_length_histogram")
 plt.savefig('09_petal_length_histogram.png')
 plt.show()
 
+Histogram 4
 for petal_width, color in zip(petal_width_to_plot, colors):
     petal_width_histogram = plt.hist(petal_width, alpha=0.75, bins=15, color=color)
 
@@ -229,7 +237,47 @@ The below images of histograms for each variable type shows petal length and pet
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/08_sepal_width_histogram.png)
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/09_petal_length_histogram.png)
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/10_petal_width_histogram.png)
-## Correlation and scatter plots
+## Correlation 
+Pandas dataframe and corr() method is used to find the pairwise correlation of all columns in the dataframe for each iris type separately.
+```
+corrMatrix_setosa = iris_setosa.corr() 
+corrMatrix_versicolor = iris_versicolor.corr() 
+corrMatrix_virginica = iris_virginica.corr() 
+```
+Data is appended into a txt file '04_iris_data_summary'. 
+```
+with open ("04_iris_data_summary", "a") as f: mode
+    f.write("correlation matrix setosa\n{}\n\n".format(str(corrMatrix_setosa)))  
+    f.write("correlation matrix versicolor\n{}\n\n".format(str(corrMatrix_versicolor))) 
+    f.write("correlation matrix virginica\n{}\n\n".format(str(corrMatrix_virginica)))
+```
+Correlation coefficients are used to measure how strong a relationship is between two variables. Correlation coefficient can take the value anywhere between -1 and 1 where:
+* 1 indicates a strong positive relationship,
+* -1 indicates a strong negative relationship,
+* zero indicates no relationship at all.
+
+```
+correlation matrix setosa
+              sepal_length  sepal_width  petal_length  petal_width
+sepal_length      1.000000     0.746780      0.263874     0.279092
+sepal_width       0.746780     1.000000      0.176695     0.279973
+petal_length      0.263874     0.176695      1.000000     0.306308
+petal_width       0.279092     0.279973      0.306308     1.000000
+
+correlation matrix versicolor
+              sepal_length  sepal_width  petal_length  petal_width
+sepal_length      1.000000     0.525911      0.754049     0.546461
+sepal_width       0.525911     1.000000      0.560522     0.663999
+petal_length      0.754049     0.560522      1.000000     0.786668
+petal_width       0.546461     0.663999      0.786668     1.000000
+
+correlation matrix virginica
+              sepal_length  sepal_width  petal_length  petal_width
+sepal_length      1.000000     0.457228      0.864225     0.281108
+sepal_width       0.457228     1.000000      0.401045     0.537728
+petal_length      0.864225     0.401045      1.000000     0.322108
+petal_width       0.281108     0.537728      0.322108     1.000000
+```
 
 # References
 1. (25th February 2021) Iris flower data set, Available at: https://en.wikipedia.org/wiki/Iris_flower_data_set (Accessed: 15th April 2021).
@@ -263,3 +311,4 @@ The below images of histograms for each variable type shows petal length and pet
 29. Matplotlib Tutorial, Available at: https://www.w3schools.com/python/matplotlib_intro.asp (Accessed: 29th April 2021).
 30. Box plot review, Available at: https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/box-whisker-plots/a/box-plot-review (Accessed: 30th April 2021).
 31. Outliers: Finding Them in Data, Formula, Examples. Easy Steps and Video, Available at: https://www.statisticshowto.com/statistics-basics/find-outliers/ (Accessed: 30th April 2021).
+32. Correlation Coefficient: Simple Definition, Formula, Easy Steps, Available at: https://www.statisticshowto.com/probability-and-statistics/correlation-coefficient-formula/ (Accessed: 30th April 2021).
