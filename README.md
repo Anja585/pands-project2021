@@ -43,7 +43,7 @@ import matplotlib.pyplot as plt
 * Numpy is a library for the Python programming language, used for working with arrays. NumPy is short for "Numerical Python". We will use Numpy for descriptive statistics calculations. 
 * Mathplotlib is a low-level graph plotting library in Python that serves as a visualization utility. Pyplot is a submodule of Mathplotlib. We are using mathplotlib.pyplot for plotting.
 ## Summary of the data 
-Iris data set is stored as a CSV file (comma-separated file) as 01_iris.data. 
+Iris data set is stored as a CSV file (comma-separated file) as '01_iris.data'. 
 We are loading the file into a Pandas data frame.
 
 ```
@@ -83,9 +83,9 @@ unique            3
 top     Iris-setosa
 freq             50
 ```
-The output of the descriptive statistics information for quantitative variables are presented in the tables below. 
+The output of the descriptive statistics information for quantitative variables are presented in the tables below. All measures are given in centimeters.  
 
-Count marks the number of instances in the sample for each variable type. Mean is the average of each variable measured in centimeters. Standard deviation express how much the members of a group differ from the mean value for the group. The table also gives values of minimun and maximum values, median (50%), first (25%) and third quartile (75%).
+Count marks the number of instances in the sample for each variable type. Mean is the average of each variable. Standard deviation express how much the members of a group differ from the mean value for the group. The table also gives values of minimun and maximum values, median (50%), first (25%) and third quartile (75%).
 ```
 iris setosa
        sepal_length  sepal_width  petal_length  petal_width
@@ -122,6 +122,115 @@ min         4.90000     2.200000      4.500000      1.40000
 75%         6.90000     3.175000      5.875000      2.30000
 max         7.90000     3.800000      6.900000      2.50000
 ```
+## Boxplots 
+We are visualizing data summary output in box plots. Box plot (also called box and whiskers plot) displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile, median, third quartile, and maximum. The five-number summary divides the data into sections that each contain approximately 25%, percent of the data in that set. Example of a boxplot is presented in a below image. 
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/06_boxplot_example.jpg)
+
+We are creating the object variables for each attribute for each class.
+```
+sepal_length_setosa = iris_setosa.sepal_length 
+sepal_length_versicolor = iris_versicolor.sepal_length
+sepal_length_virginica = iris_virginica.sepal_length
+sepal_width_setosa = iris_setosa.sepal_width
+sepal_width_versicolor = iris_versicolor.sepal_width
+sepal_width_virginica = iris_virginica.sepal_width
+petal_length_setosa = iris_setosa.petal_length
+petal_length_versicolor = iris_versicolor.petal_length
+petal_length_virginica = iris_virginica.petal_length
+petal_width_setosa = iris_setosa.petal_width
+petal_width_versicolor = iris_versicolor.petal_width
+petal_width_virginica = iris_virginica.petal_width
+```
+Varibles are grouped together into a list. 
+```
+sepal_length_to_plot = [sepal_length_setosa, sepal_length_versicolor, sepal_length_virginica]
+sepal_width_to_plot = [sepal_width_setosa, sepal_width_versicolor, sepal_width_virginica]
+petal_length_to_plot = [petal_length_setosa, petal_length_versicolor, petal_length_virginica]
+petal_width_to_plot = [petal_width_setosa, petal_width_versicolor, petal_width_virginica]
+```
+Grouping together labels for x axis into a list. 
+```
+labels = ["setosa", "versicolor", "virginica"]
+```
+Matplotlib.pyplot is used to create a figure instance and a set of subplots.
+```
+fig, (ax1, ax2, ax3, ax4) = plt.subplots(1, 4, figsize=(12,8))
+```
+Plotting the box plots using matplotlib.pyplot.
+```
+sepal_length_boxplot = ax1.boxplot(sepal_length_to_plot, patch_artist=True, labels=labels) 
+ax1.set_title("sepal_length_boxplot") 
+
+sepal_width_boxplot = ax2.boxplot(sepal_width_to_plot, patch_artist=True, labels=labels)
+ax2.set_title("sepal_width_boxplot")
+
+petal_length_boxplot = ax3.boxplot(petal_length_to_plot, patch_artist=True, labels=labels)
+ax3.set_title("petal_length_boxplot")
+
+petal_width_boxplot = ax4.boxplot(petal_width_to_plot, patch_artist=True, labels=labels)
+ax4.set_title("petal_width_boxplot")
+```
+Using 'for loop' and zip() method to pair each box plot with the color from the list. 
+```
+colors =  ["pink", "lightblue", "lightgreen"] 
+for boxplot in (sepal_length_boxplot, sepal_width_boxplot, petal_length_boxplot, petal_width_boxplot): 
+    for patch,color in zip(boxplot['boxes'], colors): 
+        patch.set_facecolor(color) 
+```
+Isolated points (little cicles) in boxplots are outliners - piece of data that is an abnormal distance from other points. Looking at the boxplot we can see there are not many of them, so they wouldn't have a large impact on the statistics.
+
+The below image of boxplots for each variable type shows petal length and petal width measures are the best indicators to use for determining the type of iris.  
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/05_boxplot.png)
+## Histograms 
+Plotting the histograms using matplotlib.pyplot.
+```
+for sepal_length, color in zip(sepal_length_to_plot, colors):
+    sepal_length_histogram = plt.hist(sepal_length, alpha=0.75, bins=15, color=color) 
+
+plt.legend(labels) 
+plt.xlabel("sepal_length") 
+plt.ylabel("frequency") 
+plt.title("sepal_length_histogram") 
+plt.savefig('07_sepal_length_histogram.png') 
+plt.show() 
+
+for sepal_width, color in zip(sepal_width_to_plot, colors):
+    sepal_width_histogram = plt.hist(sepal_width, alpha=0.75, bins=15, color=color)
+
+plt.legend(labels)
+plt.xlabel("sepal_width")
+plt.ylabel("frequency")
+plt.title("sepal_width_histogram")
+plt.savefig('08_sepal_width_histogram.png')
+plt.show()
+
+for petal_length, color in zip(petal_length_to_plot, colors):
+    petal_length_histogram = plt.hist(petal_length, alpha=0.75, bins=15, color=color)
+
+plt.legend(labels)
+plt.xlabel("petal_length")
+plt.ylabel("frequency")
+plt.title("petal_length_histogram")
+plt.savefig('09_petal_length_histogram.png')
+plt.show()
+
+for petal_width, color in zip(petal_width_to_plot, colors):
+    petal_width_histogram = plt.hist(petal_width, alpha=0.75, bins=15, color=color)
+
+plt.legend(labels)
+plt.xlabel("petal_width")
+plt.ylabel("frequency")
+plt.title("petal_width_histogram")
+plt.savefig('10_petal_width_histogram.png')
+plt.show()
+```
+The below images of histograms for each variable type shows petal length and petal width measures are the best indicators to use for determining the type of iris because there is least amount of overlap between histograms. 
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/07_sepal_length_histogram.png)
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/08_sepal_width_histogram.png)
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/09_petal_length_histogram.png)
+![alt text](https://github.com/Anja585/pands-project2021/blob/main/10_petal_width_histogram.png)
+## Correlation and scatter plots
+
 # References
 1. (25th February 2021) Iris flower data set, Available at: https://en.wikipedia.org/wiki/Iris_flower_data_set (Accessed: 15th April 2021).
 2. Real Python (20th June 2019) PEP8 Tips: Python Naming Conventions, Available at: https://www.youtube.com/watch?v=Uw95Uc3xgWU (Accessed: 17th April 2021).
@@ -152,3 +261,5 @@ max         7.90000     3.800000      6.900000      2.50000
 27. NumPy, Available at: https://en.wikipedia.org/wiki/NumPy (Accessed: 29th April 2021).
 28. NumPy Tutorial, Available at: https://www.w3schools.com/python/numpy/default.asp (Accessed: 29th April 2021).
 29. Matplotlib Tutorial, Available at: https://www.w3schools.com/python/matplotlib_intro.asp (Accessed: 29th April 2021).
+30. Box plot review, Available at: https://www.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/box-whisker-plots/a/box-plot-review (Accessed: 30th April 2021).
+31. Outliers: Finding Them in Data, Formula, Examples. Easy Steps and Video, Available at: https://www.statisticshowto.com/statistics-basics/find-outliers/ (Accessed: 30th April 2021).
