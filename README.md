@@ -45,16 +45,16 @@ import matplotlib.pyplot as plt
 * Mathplotlib is a low-level graph plotting library in Python that serves as a visualization utility. Pyplot is a submodule of Mathplotlib. We are using mathplotlib.pyplot for plotting.
 ## Summary of the data 
 Iris data set is stored as a file (comma-separated file) as '01_iris.data'. 
-We are loading the file into a Pandas dataframe.
+We are loading the file into a Pandas data frame.
 
 ```
 iris = pd.read_csv("01_iris.data") 
 ```
-Putting dataframe into an object variable. 
+Putting data frame into an object variable.  
 ```
 df = pd.DataFrame(iris) 
 ```
-Next, we are selecting a subset of a dataframe by filtering rows for Setosa, Versicolor and Virginica iris types separately. 
+Next, we are selecting a subset of a data frame by filtering rows for Setosa, Versicolor, and Virginica iris type separately. 
 ```
 iris_setosa = iris[iris["iris_type"] == "Iris-setosa"]  
 iris_versicolor = iris[iris["iris_type"] == "Iris-versicolor"] 
@@ -75,7 +75,7 @@ with open ("04_iris_data_summary", "w") as f:
     f.write("iris versicolor\n{}\n\n".format(str(iris_versicolor_summary))) 
     f.write("iris virginica\n{}\n\n".format(str(iris_virginica_summary))) 
 ```
-First table gives the summary of descriptive statistics of a character variable 'iris_type'. The table shows there are 150 instances in total, 50 for each iris type. There are 3 unique iris types where iris Setosa is on the top of the list.  
+The first table gives the summary of descriptive statistics of a character variable 'iris_type'. The table shows there are 150 instances in total, 50 for each iris type. There are 3 unique iris types where iris Setosa is on the top of the list.  
 ```
 varieties
           iris_type
@@ -84,9 +84,9 @@ unique            3
 top     Iris-setosa
 freq             50
 ```
-The output of the descriptive statistics information for quantitative variables are presented in the tables below. All measures are given in centimeters.  
+The output of the descriptive statistics information for quantitative variables is presented in the tables below. All measures are given in centimeters.  
 
-Count marks the number of instances in the sample for each variable type. Mean is the average of each variable. Standard deviation express how much the members of a group differ from the mean value for the group. The table also gives values of minimun and maximum values, median (50%), first (25%) and third quartile (75%).
+Count marks the number of instances in the sample for each variable type. Mean is the average of each variable. Standard deviation express how much the members of a group differ from the mean value for the group. The table also gives values of minimum and maximum values, median (50%), first (25%), and third quartile (75%).
 ```
 iris setosa
        sepal_length  sepal_width  petal_length  petal_width
@@ -124,7 +124,7 @@ min         4.90000     2.200000      4.500000      1.40000
 max         7.90000     3.800000      6.900000      2.50000
 ```
 ## Boxplots 
-We are visualizing data summary output in boxplots. Boxplot (also called box and whiskers plot) displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile, median, third quartile, and maximum. The five-number summary divides the data into sections that each contain approximately 25%, percent of the data in that set. Example of a boxplot is presented in a below image. 
+We are visualizing data summary output in boxplots. Boxplot (also called box and whiskers plot) displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile, median, third quartile, and maximum. The five-number summary divides the data into sections that each contain approximately 25%, percent of the data in that set. An example of a boxplot is presented in the below image. 
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/06_boxplot_example.jpg)
 (Boxplot source: https://www.statisticshowto.com/probability-and-statistics/descriptive-statistics/box-plot/)
 
@@ -143,14 +143,14 @@ petal_width_setosa = iris_setosa.petal_width
 petal_width_versicolor = iris_versicolor.petal_width
 petal_width_virginica = iris_virginica.petal_width
 ```
-Varibles are grouped together into a list. 
+Variables are grouped together into a list. 
 ```
 sepal_length_to_plot = [sepal_length_setosa, sepal_length_versicolor, sepal_length_virginica]
 sepal_width_to_plot = [sepal_width_setosa, sepal_width_versicolor, sepal_width_virginica]
 petal_length_to_plot = [petal_length_setosa, petal_length_versicolor, petal_length_virginica]
 petal_width_to_plot = [petal_width_setosa, petal_width_versicolor, petal_width_virginica]
 ```
-Grouping together labels for x axis into a list. 
+Grouping together labels for the x axis into a list. 
 ```
 labels = ["setosa", "versicolor", "virginica"]
 ```
@@ -176,14 +176,14 @@ Boxplot 4
 petal_width_boxplot = ax4.boxplot(petal_width_to_plot, patch_artist=True, labels=labels)
 ax4.set_title("petal_width_boxplot")
 ```
-Using 'for loop' and zip() method to pair each box plot with the color from the list. 
+Using the 'for loop' and zip() method to pair each box plot with the color from the list. 
 ```
 colors =  ["pink", "lightblue", "lightgreen"] 
 for boxplot in (sepal_length_boxplot, sepal_width_boxplot, petal_length_boxplot, petal_width_boxplot): 
     for patch,color in zip(boxplot['boxes'], colors): 
         patch.set_facecolor(color) 
 ```
-Isolated points (little cicles) in boxplots are outliners - piece of data that is an abnormal distance from other points. Looking at the boxplot we can see there are not many of them, so they wouldn't have a large impact on the statistics.
+Isolated points (little circles) in boxplots are outliners - a piece of data that is an abnormal distance from other points. Looking at the boxplot we can see there are not many of them, so they wouldn't have a large impact on the statistics.
 
 The below image of boxplots for each variable type shows petal length and petal width measures are the best indicators to use for determining the iris type.  
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/05_boxplot.png)
@@ -234,7 +234,7 @@ plt.title("petal_width_histogram")
 plt.savefig('10_petal_width_histogram.png')
 plt.show()
 ```
-The below images of histograms for each variable type shows petal length and petal width measures are the best indicators to use for determining the type of iris because there is least amount of overlap between histograms. 
+The below images of histograms for each variable type shows petal length and petal width measures are the best indicators to use for determining the type of iris because there is the least amount of overlap between histograms. 
 * sepal length
 
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/07_sepal_length_histogram.png)
@@ -248,13 +248,13 @@ The below images of histograms for each variable type shows petal length and pet
 
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/10_petal_width_histogram.png)
 ## Correlation 
-Pandas dataframe and corr() method is used to find the pairwise correlation of all columns in the dataframe for each iris type separately.
+Pandas data frame and corr() method is used to find the pairwise correlation of all columns in the data frame for each iris type separately.
 ```
 corrMatrix_setosa = iris_setosa.corr() 
 corrMatrix_versicolor = iris_versicolor.corr() 
 corrMatrix_virginica = iris_virginica.corr() 
 ```
-Data is appended into a txt file '04_iris_data_summary'. 
+Data is appended into a txt file '04 iris_data summary'.
 ```
 with open ("04_iris_data_summary", "a") as f: mode
     f.write("correlation matrix setosa\n{}\n\n".format(str(corrMatrix_setosa)))  
@@ -289,7 +289,7 @@ petal_length      0.864225     0.401045      1.000000     0.322108
 petal_width       0.281108     0.537728      0.322108     1.000000
 ```
 ## Scatter plots
-Correlation between two variables can be visualy presented in scatter plots. 
+Correlation between two variables can be visually presented in scatter plots. 
 
 Plotting the scatter plots using matplotlib.pyplot.
 ```
