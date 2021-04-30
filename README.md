@@ -16,7 +16,8 @@ The attributes measured were:
 All measures were given in centimeters. The Iris flower data set is now widely used as a data set for testing purposes in computer science. Below is an image of each flower type and a summary of samples presented in a table. 
 
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/iris_versicolor_setosa_virginica.jpg)
-(source: https://www.datacamp.com/community/tutorials/machine-learning-in-r)
+(Iris flower types source: https://www.datacamp.com/community/tutorials/machine-learning-in-r)
+
 ```
      sepal-length  sepal_width  petal_length  petal_width    type_of_Iris
 0             5.1          3.5           1.4          0.2     Iris-setosa
@@ -125,7 +126,7 @@ max         7.90000     3.800000      6.900000      2.50000
 ## Boxplots 
 We are visualizing data summary output in boxplots. Boxplot (also called box and whiskers plot) displays the five-number summary of a set of data. The five-number summary is the minimum, first quartile, median, third quartile, and maximum. The five-number summary divides the data into sections that each contain approximately 25%, percent of the data in that set. Example of a boxplot is presented in a below image. 
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/06_boxplot_example.jpg)
-(source: https://www.statisticshowto.com/probability-and-statistics/descriptive-statistics/box-plot/)
+(Boxplot source: https://www.statisticshowto.com/probability-and-statistics/descriptive-statistics/box-plot/)
 
 We are creating the object variables for each attribute for each class.
 ```
@@ -235,12 +236,16 @@ plt.show()
 ```
 The below images of histograms for each variable type shows petal length and petal width measures are the best indicators to use for determining the type of iris because there is least amount of overlap between histograms. 
 * sepal length
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/07_sepal_length_histogram.png)
 * sepal width
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/08_sepal_width_histogram.png)
 * petal length
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/09_petal_length_histogram.png)
 * petal width
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/10_petal_width_histogram.png)
 ## Correlation 
 Pandas dataframe and corr() method is used to find the pairwise correlation of all columns in the dataframe for each iris type separately.
@@ -349,16 +354,22 @@ plt.savefig('16_sepwid_petwid_scatterplot.png')
 plt.show()
 ```
 * sepal length vs sepal width
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/11_petwid_sepwid_scatterplot.png)
 * sepal length vs petal length
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/12_seplen_petlen_scatterplot.png)
 * sepal length vs petal width
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/13_seplen_petwid_scatterplot.png)
 * sepal width vs petal length
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/14_sepwid_petlen_scatterplot.png)
 * petal length vs petal width
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/15_petlen_petwid_scatterplot.png)
 * sepal width vs petal width
+
 ![alt text](https://github.com/Anja585/pands-project2021/blob/main/16_sepwid_petwid_scatterplot.png)
 
 # References
